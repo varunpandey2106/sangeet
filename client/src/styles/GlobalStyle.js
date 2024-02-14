@@ -182,3 +182,17 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export default GlobalStyle;
+
+
+// html: Sets the box-sizing property to border-box for all elements.
+// *, *:before, *:after: Inherits the box-sizing property set on the html element.
+// body: Sets styles for the body element including margin, padding, width, max-width, min-height, overflow-x, font-family, font-size, background-color, and color.
+// #root: Sets the min-height property to 100%.
+// Headings (h1 to h6): Sets styles for headings including letter-spacing, margin, and font-weight.
+// p: Sets margin for paragraphs.
+// Lists (ol, ul): Removes default padding and margin and sets list-style to none.
+// a: Sets styles for anchor tags including display, text-decoration, color, transition, and cursor.
+// img: Sets styles for images including width, max-width, and vertical-align.
+// svg: Sets the fill property to currentColor and vertical-align property to middle.
+// input: Sets styles for input elements including border-radius, outline, and placeholder opacity.
+// button: Sets styles for button elements including display, color, font-family, font-size, font-weight, border-radius, border, padding, cursor, and transition.
