@@ -188,3 +188,4 @@ export default FeatureChart;
 // PropTypes: It defines PropTypes for the features prop to ensure it's either an array or an object, and for the type prop to specify the type of chart.
 
 // Export: It exports the FeatureChart component as the default export.
+//1 container
