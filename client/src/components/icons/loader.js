@@ -114,3 +114,11 @@ const IconLoader = () => (
 );
 
 export default IconLoader;
+
+// The IconLoader component is a React functional component that renders an animated loader icon. This loader consists of three animated rectangles that move up and down with changing opacity to indicate loading activity. Here's a breakdown of its structure:
+
+// It uses styled-components to define the styles for the loader container (Loader) and its child SVG elements.
+// The Loader styled component sets the layout and styling for the loader container, including margin, height, width, text alignment, padding, and display properties.
+// The IconLoader component renders the loader icon using SVG (<svg>), with three <rect> elements representing the rectangles.
+// Each <rect> element has attributes for position (x and y), size (width and height), fill color (fill), and opacity (opacity). These attributes are dynamically animated using the <animate> element to create the loading animation effect.
+// The animation properties (attributeName, values, begin, dur, repeatCount) define how the opacity and position of the rectangles change over time to create the loading animation.
