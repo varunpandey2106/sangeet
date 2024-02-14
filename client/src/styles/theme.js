@@ -54,3 +54,19 @@ const theme = {
 };
 
 export default theme;
+
+// Colors: Defines a set of color variables used throughout the application. These variables include shades of green, blue, black, white, and different shades of grey.
+
+// Fonts: Specifies the primary font family used in the application. In this case, it's set to "Circular Std, system, -apple-system, BlinkMacSystemFont, sans-serif".
+
+// Font Sizes: Defines a set of font sizes categorized by their relative scale, such as base, xs, sm, md, lg, xl, and xxl.
+
+// Spacing: Specifies a set of spacing values used for margins, padding, and other layout-related properties. It includes values for base, xs, sm, md, lg, and xl.
+
+// Easing: Defines a set of easing functions used for animations and transitions. These functions are specified using the cubic-bezier notation.
+
+// Transition: Specifies the default transition property used for smooth animations. It's set to all 0.25s cubic-bezier(0.3, 0, 0.4, 1).
+
+// Navigation Dimensions: Specifies the width and height of the navigation component. In this case, navWidth is set to "100px" and navHeight is set to "70px".
+
+// This theme object can be imported and used throughout the application to ensure consistency in styling and theming. It allows for easy customization and maintenance of styles by centralizing theme-related values in one place.

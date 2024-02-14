@@ -1,5 +1,5 @@
 {
-  "name": "spotify-profile",
+  "name": "client",
   "version": "0.1.0",
   "private": true,
   "eslintConfig": {
@@ -19,7 +19,6 @@
       "pure": true
     }
   },
-  "homepage": "https://spotify-profile.herokuapp.com",
   "proxy": "http://localhost:8000",
   "scripts": {
     "start": "react-scripts start",
