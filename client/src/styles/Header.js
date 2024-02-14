@@ -5,3 +5,8 @@ const Header = styled.header`
 `;
 
 export default Header;
+// This styled component used to wrap header content, ensuring consistent styling and layout throughout website
+
+
+
+
