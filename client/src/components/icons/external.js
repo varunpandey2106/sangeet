@@ -18,3 +18,12 @@ const IconExternal = () => (
 );
 
 export default IconExternal;
+
+// It uses the <svg> element to define the SVG graphic.
+// The xmlns, role, and viewBox attributes are used to specify XML namespace, accessibility role, and the coordinate system and dimensions of the viewBox respectively.
+// The <title> element provides a title for the SVG, which is typically used for accessibility purposes.
+// The <g> element is used to group SVG shapes together.
+// There are two <path> elements inside the <g> element, each representing a different part of the icon:
+// The first <path> represents an arrow pointing to the upper right direction, typically indicating an external link.
+// The second <path> represents a rectangle with an arrow, typically indicating an external link or action.
+// Each <path> element has a d attribute that defines the shape of the path using path data commands.

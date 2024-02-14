@@ -28,3 +28,13 @@ const IconGithub = () => (
 );
 
 export default IconGithub;
+
+
+// The IconGithub component is a React functional component that renders an SVG icon representing the GitHub logo. Here's a breakdown of its structure:
+
+// It uses the <svg> element to define the SVG graphic.
+// The xmlns, role, and viewBox attributes are used to specify XML namespace, accessibility role, and the coordinate system and dimensions of the viewBox respectively.
+// The <title> element provides a title for the SVG, which is typically used for accessibility purposes.
+// The <path> element represents the shape of the GitHub logo using path data commands defined by the d attribute.
+
+
