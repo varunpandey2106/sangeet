@@ -168,3 +168,10 @@ export default Artist;
 // The font size is set to ${fontSizes.lg} for larger screens and ${fontSizes.md} for tablet-sized screens and smaller, applying a responsive design.
 // The text is transformed to capitalize using text-transform: capitalize to ensure consistent formatting.
 // Media queries are used to adjust the font size for tablet-sized screens and smaller using ${media.tablet}.
+//6 divs
+// ArtistContainer (1)
+// Artwork (2)
+// Stats (3)
+// Stat (4)
+// Number (5)
+// Genre (6)
