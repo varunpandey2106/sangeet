@@ -25,3 +25,12 @@ export const media = Object.keys(sizes).reduce((accumulator, label) => {
 }, {});
 
 export default media;
+
+
+// sizes Object: This object contains named sizes with their corresponding pixel values. Each size represents a different screen width breakpoint.
+
+// media Object Creation: The Object.keys(sizes).reduce() function iterates over the keys of the sizes object and creates a new object (media) with media query templates for each size.
+
+// Media Query Template: For each size, a media query template is created using the css function from styled-components. The media query targets screens with a maximum width equal to the size in em units. Inside the media query, the provided CSS rules are interpolated using the spread operator (...args). This allows for the inclusion of any CSS rules when using the media query template.
+
+// Usage: To use these media query templates, you can import the media object and call the corresponding size as a function, passing in the CSS rules as arguments. For example:
