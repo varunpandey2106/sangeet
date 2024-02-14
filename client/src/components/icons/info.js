@@ -20,3 +20,10 @@ const IconInfo = () => (
 );
 
 export default IconInfo;
+
+
+// The IconInfo component is a React functional component that renders an SVG icon representing an information or info icon. Here's a breakdown of its structure:
+
+// It uses the <svg> element to define the SVG graphic.
+// The version, xmlns, x, y, width, height, viewBox, and xmlSpace attributes are used to specify various properties of the SVG.
+// The <path> element represents the shape of the info icon using path data commands defined by the d attribute.
