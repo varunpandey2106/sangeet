@@ -84,3 +84,18 @@ const mixins = {
 };
 
 export default mixins;
+
+// flexCenter: Centers flex items horizontally and vertically within their container.
+// flexBetween: Aligns flex items in a container with space between them.
+// engulf: Styles an element to fill its entire parent container.
+// outline: Adds a red outline around an element.
+// overflowEllipsis: Truncates text with an ellipsis when it overflows its container.
+// coverShadow: Applies a box shadow effect to an element.
+// button: Styles a button element with specific properties such as color, font size, border, padding, and transition effects. It changes color and background on hover or focus.
+// greenButton: Similar to the button mixin but with a green background color and different hover/focus effects.
+
+// flexCenter centers items both horizontally and vertically, while flexBetween aligns multiple items with space between them along the main axis.
+
+
+
+
