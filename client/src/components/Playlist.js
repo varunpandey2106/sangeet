@@ -37,14 +37,14 @@ const Right = styled.div`
 const PlaylistCover = styled.div`
   ${mixins.coverShadow};
   width: 100%;
-  max-width: 300px;
+  max-width: 400px;
   margin: 0 auto;
   ${media.tablet`
     display: none;
   `};
 `;
 const Name = styled.h3`
-  font-weight: 700;
+  font-weight: 1700;
   font-size: ${fontSizes.xl};
   margin-top: 20px;
 `;
@@ -66,11 +66,11 @@ const RecButton = styled(Link)`
 `;
 const Owner = styled.p`
   font-size: ${fontSizes.sm};
-  color: ${colors.lightGrey};
+  color: ${colors.green};
 `;
 const TotalTracks = styled.p`
   font-size: ${fontSizes.sm};
-  color: ${colors.white};
+  color: ${colors.green};
   margin-top: 20px;
 `;
 
@@ -148,3 +148,32 @@ Playlist.propTypes = {
 };
 
 export default Playlist;
+
+
+// Imports:
+
+// React, useState, useEffect: These are imported from the 'react' package to enable React functional component creation and state management.
+// Link: Imported from '@reach/router' for navigation within the application.
+// PropTypes: Imported from 'prop-types' for type-checking of props.
+// getPlaylist, getAudioFeaturesForTracks: Imported from '../spotify' for fetching playlist data and audio features.
+// catchErrors: Imported from '../utils' for error handling.
+// Loader, TrackItem, FeatureChart: These are components imported from their respective files.
+// Styled Components:
+
+// Various styled components are defined using the styled function from 'styled-components/macro'. These styled components are used for styling the elements of the playlist component.
+// Playlist Functional Component:
+
+// Playlist is a functional component that takes playlistId as a prop.
+// Two state variables, playlist and audioFeatures, are declared using the useState hook to manage the playlist data and its audio features.
+// Two useEffect hooks are used for fetching data:
+// The first useEffect fetches the playlist data when the component mounts or when playlistId changes.
+// The second useEffect fetches the audio features for the tracks in the playlist when the playlist state variable changes.
+// Inside the component, a conditional rendering is used:
+// If playlist data is available, the main content is rendered:
+// It includes the playlist cover image, name, owner, description, total tracks, a button for getting recommendations, and a feature chart displaying audio features of the tracks.
+// The tracks are rendered in the right section using the TrackItem component.
+// If playlist data is not available, a Loader component is rendered.
+// Finally, the Playlist component is exported, and its playlistId prop is type-checked using PropTypes.
+// PropTypes:
+
+// playlistId is defined as a required string prop for type-checking using PropTypes.
