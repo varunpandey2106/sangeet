@@ -227,7 +227,7 @@ export default Nav;
 // Imported icons used in the navigation menu (e.g., IconUser, IconMicrophone, etc.).
 // The navigation menu consists of several menu items, each represented by a MenuItem component. Each menu item contains an icon and text, and clicking on a menu item navigates the user to a specific route. Additionally, there's a GitHub link at the bottom of the navigation for accessing the project's GitHub repository. The menu layout changes based on the viewport size, with a column layout on smaller screens and a row layout on tablets.
 
-//  a total of 15 div elements:
+//  a total of 14 div elements:
 
 // Container (1 div)
 // Logo (1 div)
