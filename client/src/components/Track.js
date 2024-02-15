@@ -55,7 +55,7 @@ const ArtistName = styled.h2`
     font-size: 20px;
   `};
   ${media.phablet`
-    text-align: center !important;
+    text-align: center important;
   `};
 `;
 const Album = styled.h3`
@@ -187,7 +187,7 @@ const Track = props => {
                   <FeatureLabel>Time Signature</FeatureLabel>
                 </Feature>
                 <Feature>
-                  <FeatureText>{Math.round(audioFeatures.tempo)}</FeatureText>
+                  <FeatureText>{Math.ceil(audioFeatures.tempo)}</FeatureText>
                   <FeatureLabel>Tempo (BPM)</FeatureLabel>
                 </Feature>
                 <Feature>
@@ -235,3 +235,33 @@ Track.propTypes = {
 };
 
 export default Track;
+
+
+// This code defines a React functional component named Track, which is responsible for displaying detailed information about a specific track. Here's a breakdown of its functionality:
+
+// State Initialization:
+
+// The component uses the useState hook to initialize state variables:
+// track: Represents the track data fetched from the Spotify API.
+// audioAnalysis: Represents the audio analysis data fetched from the Spotify API.
+// audioFeatures: Represents the audio features data fetched from the Spotify API.
+// Fetching Data:
+
+// The useEffect hook is used to fetch track information, audio analysis, and audio features when the component mounts or when the trackId prop changes.
+// The getTrackInfo function is called inside the useEffect hook to fetch the track data.
+// The fetched data is stored in the respective state variables using setTrack, setAudioAnalysis, and setAudioFeatures.
+// Rendering:
+
+// If the track data is available, the component renders detailed information about the track including:
+// Track title (track.name).
+// Artist name(s) (track.artists).
+// Album name (track.album.name) and release year (getYear(track.album.release_date)).
+// Play button to open the track on Spotify (<PlayTrackButton>).
+// Audio features including duration, key, modality, time signature, tempo, popularity, bars, beats, sections, and segments.
+// A link to view the full description of audio features on the Spotify Developer website (<DescriptionLink>).
+// A feature chart component (<FeatureChart>) to visually represent the audio features.
+// If the track data is not available, a loader component (<Loader>) is displayed to indicate that the data is loading.
+// PropTypes Validation:
+
+// The component specifies PropTypes for the trackId prop to ensure it is of type string.
+// Overall, the Track component provides a detailed view of a specific track's information, including its audio features and analysis, fetched from the Spotify API.

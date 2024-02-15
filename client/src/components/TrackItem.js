@@ -62,7 +62,7 @@ const TrackName = styled.span`
   border-bottom: 1px solid transparent;
   &:hover,
   &:focus {
-    border-bottom: 1px solid ${colors.white};
+    border-bottom: 1px solid ${colors.green};
   }
 `;
 const TrackAlbum = styled.div`
@@ -117,3 +117,30 @@ TrackItem.propTypes = {
 };
 
 export default TrackItem;
+
+
+// This code defines a React functional component named TrackItem, which represents an item displaying information about a track. Here's a breakdown of its functionality:
+
+// Component Structure:
+
+// The component is structured using styled-components for styling.
+// It consists of a list item (<li>) containing a track container (<TrackContainer>), which further contains the track artwork (<TrackArtwork>) and track metadata (<TrackMeta>).
+// Props:
+
+// The component receives a single prop named track, which is an object containing information about the track to be displayed. This prop is required, and its PropTypes are defined accordingly.
+// Rendering:
+
+// The component renders the track information including:
+// Track name (track.name).
+// Artists (track.artists) and album name (track.album.name).
+// Duration of the track (track.duration_ms), formatted using the formatDuration utility function.
+// Styling:
+
+// The component utilizes styled-components for styling elements such as track name, album name, and duration.
+// CSS grid and flexbox are used for layout purposes to achieve responsiveness.
+// Interaction:
+
+// The track container (<TrackContainer>) is a Link component from @reach/router, which allows for navigation to the track details page when clicked.
+// Hover/Focus Effects:
+
+// When the user hovers over or focuses on a track item, a mask overlay (<Mask>) is displayed over the track artwork (<TrackArtwork>) containing an information icon (<IconInfo />). This is achieved using CSS transitions and opacity changes.
