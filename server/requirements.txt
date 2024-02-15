@@ -1,5 +1,6 @@
-fastapi==0.68.2
-requests==2.26.0
-uvicorn==0.15.0
-starlette==0.17.1
-python-dotenv==0.19.3
+fastapi
+requests
+uvicorn
+starlette
+python-dotenv
+itsdangerous
