@@ -25,7 +25,7 @@ const PlaylistHeading = styled.div`
 
   `};
   h2 {
-    margin-bottom: 0;
+    margin-bottom: 10;
   }
 `;
 const SaveButton = styled.button`
@@ -144,3 +144,33 @@ Recommendations.propTypes = {
 };
 
 export default Recommendations;
+
+
+// This code defines a React functional component named Recommendations. Let's break it down:
+
+// Imports:
+
+// React, useState, useEffect, useMemo: These are imported from the 'react' package to enable React functional component creation and state management.
+// Link: Imported from '@reach/router' for navigation within the application.
+// PropTypes: Imported from 'prop-types' for defining the PropTypes of props passed to the component.
+// Several functions like getPlaylist, getRecommendationsForTracks, etc., are imported from '../spotify' for fetching data related to playlists, recommendations, users, creating playlists, adding tracks to playlists, and following playlists.
+// catchErrors: Imported from '../utils' for error handling.
+// TrackItem: Imported from './TrackItem' for rendering individual track items.
+// Various styled components and theme-related objects are imported from '../styles' for styling the component.
+// Styled Components:
+
+// PlaylistHeading, SaveButton, OpenButton, TracksContainer, PlaylistLink: These styled components define the styles for different parts of the component, such as the heading, buttons, playlist link, and tracks container.
+// Recommendations Functional Component:
+
+// Recommendations is a functional component with a prop playlistId.
+// Multiple state variables are declared using the useState hook to manage playlist data, recommendations data, recommended playlist ID, user ID, and whether the user is following the recommended playlist.
+// The useEffect hook is used to fetch playlist data and user data when the component mounts.
+// The useMemo hook is used to fetch recommendations based on the playlist and to add tracks to a recommended playlist and follow it.
+// The createPlaylistOnSave function is called when the "Save to Spotify" button is clicked to create a new playlist with recommended tracks.
+// The component returns a <Main> wrapper containing the heading "Recommended Tracks Based On" followed by the playlist name and buttons to save the playlist to Spotify or open it in Spotify. It also renders the list of recommended tracks inside the TracksContainer.
+// PropTypes:
+
+// The Recommendations component specifies PropTypes for its props, indicating that playlistId is a required string.
+// Export:
+
+// The Recommendations component is exported as the default export of this file.
