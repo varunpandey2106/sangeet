@@ -72,7 +72,7 @@ const Github = styled.div`
     &:hover,
     &:focus,
     &.active {
-      color: ${colors.blue};
+      color: ${colors.green};
     }
     svg {
       width: 30px;
@@ -114,7 +114,7 @@ const MenuItem = styled.li`
     &.active {
       color: ${colors.white};
       background-color: ${colors.black};
-      border-left: 5px solid ${colors.offGreen};
+      border-left: 5px solid ${colors.green};
       ${media.tablet`
         border-left: 0;
         border-top: 3px solid ${colors.offGreen};
@@ -183,3 +183,55 @@ const Nav = () => (
 );
 
 export default Nav;
+
+
+
+// Container:
+
+// Styled nav element.
+// Positioned fixed on the left side of the viewport (or bottom on tablets).
+// It has a minimum height of 100% of the viewport height.
+// It has a background color of navBlack from the theme.
+// Logo:
+
+// Styled div containing the Spotify logo.
+// Positioned at the top of the navigation.
+// Displayed as a link to the home page (/).
+// Hidden on tablets.
+// Github:
+
+// Styled div containing the GitHub icon.
+// Positioned at the bottom of the navigation.
+// Displayed as a link to the GitHub repository.
+// Hidden on tablets.
+// Menu:
+
+// Styled ul element representing the menu items.
+// Displayed as a flex container with a column layout (or row on tablets).
+// MenuItem:
+
+// Styled li element representing a single menu item.
+// Each item contains an icon and text.
+// On tablets, items are displayed as rows instead of columns.
+// NavLink:
+
+// Custom component that uses @reach/router's Link component.
+// Applies the isActive function to determine if the link is currently active.
+// It's used for defining navigation links with their corresponding destinations.
+// isActive:
+
+// Function used to determine if a link is currently active.
+// It returns an object with a class name of 'active' if the link is active, otherwise null.
+// Icons:
+
+// Imported icons used in the navigation menu (e.g., IconUser, IconMicrophone, etc.).
+// The navigation menu consists of several menu items, each represented by a MenuItem component. Each menu item contains an icon and text, and clicking on a menu item navigates the user to a specific route. Additionally, there's a GitHub link at the bottom of the navigation for accessing the project's GitHub repository. The menu layout changes based on the viewport size, with a column layout on smaller screens and a row layout on tablets.
+
+//  a total of 15 div elements:
+
+// Container (1 div)
+// Logo (1 div)
+// Menu (1 div)
+// MenuItem (5 div elements, as there are 5 menu items)
+// Github (1 div)
+// NavLink (5 div elements, each within a MenuItem)
