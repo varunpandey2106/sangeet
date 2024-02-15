@@ -1,4 +1,0 @@
-[[redirects]]
-from = "/client/*"
-to = "/client/public/index.html"
-status = 200
