@@ -46,7 +46,7 @@ const RangeButton = styled.button`
 const ArtistsContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-gap: 20px;
+  grid-gap: 50px;
   margin-top: 50px;
   ${media.tablet`
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -119,7 +119,7 @@ const ArtistName = styled.a`
   border-bottom: 1px solid transparent;
   &:hover,
   &:focus {
-    border-bottom: 1px solid ${colors.white};
+    border-bottom: 1px solid ${colors.green};
   }
 `;
 
@@ -189,3 +189,32 @@ const TopArtists = () => {
 };
 
 export default TopArtists;
+
+
+// State Initialization:
+
+// The component uses the useState hook to initialize state variables:
+// topArtists: Represents the list of top artists fetched from the Spotify API.
+// activeRange: Represents the currently active time range ('long', 'medium', 'short').
+// API Calls:
+
+// Three different API calls (getTopArtistsLong, getTopArtistsMedium, getTopArtistsShort) are defined based on different time ranges ('long', 'medium', 'short').
+// These API calls are stored in an object apiCalls with keys corresponding to the time ranges.
+// Fetching Data:
+
+// The useEffect hook is used to fetch data for the 'long' time range when the component mounts.
+// The fetchData function is called inside the useEffect hook to fetch the top artists data.
+// The catchErrors utility function is used to catch and handle any errors that occur during data fetching.
+// Changing Time Range:
+
+// The changeRange function is defined to dynamically change the time range and fetch corresponding data.
+// It takes a range parameter ('long', 'medium', 'short') and updates the topArtists state accordingly.
+// Rendering:
+
+// The component renders a header (Header) containing the title 'Top Artists' and buttons for selecting different time ranges.
+// The time range buttons (RangeButton) are displayed horizontally and allow the user to switch between different time ranges.
+// The ArtistsContainer displays a grid of artist items (Artist) fetched from the Spotify API.
+// Each artist item includes the artist's artwork, name, and a link to their Spotify profile.
+// Loading State:
+
+// While data is being fetched (topArtists is null), a loader component (Loader) is displayed to indicate that the data is loading.
