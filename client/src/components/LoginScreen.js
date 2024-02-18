@@ -6,7 +6,7 @@ const { colors, fontSizes } = theme;
 const LOGIN_URI =
   process.env.NODE_ENV !== 'production'
     ? 'http://localhost:8000/login'
-    : 'https://sangeetserver.vercel.app/login';
+    : 'https://sangeet-two.vercel.app/login';
 
 const Login = styled(Main)`
   ${mixins.flexCenter};
