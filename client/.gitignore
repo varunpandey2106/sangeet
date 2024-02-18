@@ -26,3 +26,4 @@ src/**/*.css
 package-lock.json
 
 .vscode/
+.vercel
