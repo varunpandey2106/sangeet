@@ -62,3 +62,25 @@ backup
     "lint-staged": "^9.2.5"
   }
 }
+
+
+eslint:
+
+{
+  "extends": "@upstatement/eslint-config/react"
+}
+
+
+
+babel:
+
+{
+  "plugins": [
+    [
+      "babel-plugin-styled-components",
+      {
+        "displayName": true
+      }
+    ]
+  ]
+}
