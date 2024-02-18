@@ -19,7 +19,7 @@ app = FastAPI()
 CLIENT_ID = os.getenv("CLIENT_ID")
 CLIENT_SECRET = os.getenv("CLIENT_SECRET")
 REDIRECT_URI = os.getenv("REDIRECT_URI") or 'http://localhost:8000/callback'
-FRONTEND_URI = os.getenv("FRONTEND_URI") or 'http://localhost:3000'
+FRONTEND_BASE_URL = os.getenv("FRONTEND_BASE_URL") or 'http://localhost:3000'
 PORT = int(os.getenv("PORT", 8000))
 
 # Middleware
