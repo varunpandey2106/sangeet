@@ -77,13 +77,13 @@ async def callback(request: Request, code: str = None, state: str = None):
 
     response = requests.post('https://accounts.spotify.com/api/token', data=auth_params)
     if response.status_code != 200:
-        return RedirectResponse(url=f"{FRONTEND_URI}/#error=invalid_token")
+        return RedirectResponse(url=f"{FRONTEND_BASE_URL}/#error=invalid_token")
 
     tokens = response.json()
     access_token = tokens['access_token']
     refresh_token = tokens['refresh_token']
 
-    return RedirectResponse(url=f"{FRONTEND_URI}/#access_token={access_token}&refresh_token={refresh_token}")
+    return RedirectResponse(url=f"{FRONTEND_BASE_URL}/#access_token={access_token}&refresh_token={refresh_token}")
 
 @app.get("/refresh_token")
 async def refresh_token(refresh_token: str):
