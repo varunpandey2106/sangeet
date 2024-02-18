@@ -1,14 +1,14 @@
 {
-    "functions": {
-      "api/main.py": {
-        "runtime": "python3.8",
-        "memory": 1024
+    "builds": [
+      {
+        "src": "main.py",
+        "use": "@vercel/python"
       }
-    },
+    ],
     "routes": [
-      { "src": "/api/login", "dest": "api/main.py" },
-      { "src": "/api/spotify/callback", "dest": "api/main.py" },
-      { "src": "/api/refresh_token", "dest": "api/main.py" }
+      {
+        "src": "/(.*)",
+        "dest": "main.py"
+      }
     ]
   }
-  
