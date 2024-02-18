@@ -1,9 +1,10 @@
+
 {
   "name": "client",
   "version": "0.1.0",
   "private": true,
   "eslintConfig": {
-    "extends": "@upstatement/eslint-config/react"
+    "extends": "react-app"
   },
   "browserslist": [
     ">0.2%",
@@ -49,21 +50,5 @@
     "react-dom": "^16.9.0",
     "react-scripts": "^5.0.1",
     "styled-components": "^4.3.2"
-    
-  },
-  "devDependencies": {
-    "@babel/plugin-syntax-flow": "^7.14.5",
-    "@babel/plugin-transform-react-jsx": "^7.14.9",
-    "@babel/plugin-proposal-private-property-in-object":"" ,
-    "@upstatement/eslint-config": "^0.4.2",
-    "@babel/eslint-parser": "",
-    "babel-plugin-styled-components": "^1.10.6",
-    "eslint": "^8.5.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-jsx-a11y": "^6.8.0",
-    "eslint-plugin-react": "^7.33.2",
-    "husky": "^7.0.2",
-    "lint-staged": "^12.2.0",
-    "typescript": "^4.5.5"
   }
 }
