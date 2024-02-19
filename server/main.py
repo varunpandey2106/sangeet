@@ -21,17 +21,16 @@ app = FastAPI()
 # Environment Variables
 CLIENT_ID = os.getenv("CLIENT_ID")
 CLIENT_SECRET = os.getenv("CLIENT_SECRET")
-REDIRECT_URI = os.getenv("REDIRECT_URI", "http://localhost:8000/callback")
-FRONTEND_BASE_URL = os.getenv("FRONTEND_BASE_URL", "http://localhost:3000")
+REDIRECT_URI = os.getenv("REDIRECT_URI")
+FRONTEND_BASE_URL = os.getenv("FRONTEND_BASE_URL")
 PORT = int(os.getenv("PORT", 8000))
 
 # Middleware
 app.add_middleware(SessionMiddleware, secret_key=os.urandom(32))
-# app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_credentials=True, allow_methods=["*"], allow_headers=["*"])
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "https://sangeetbackend.vercel.app", "https://sangeetstats.vercel.app/"],
+    allow_origins=["http://localhost:3000", "" ],
     allow_credentials=True,
     allow_methods=["GET", "POST"],
     allow_headers=["Authorization", "Content-Type"],
