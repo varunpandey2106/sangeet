@@ -13,21 +13,21 @@ from dotenv import load_dotenv
 import os
 load_dotenv()
 
+
+# REDIRECT_URI = os.getenv("REDIRECT_URI") or 'http://localhost:8000/callback'
+# FRONTEND_BASE_URL = os.getenv("FRONTEND_BASE_URL") or 'http://localhost:3000'
 app = FastAPI()
 
 # Environment Variables
 CLIENT_ID = os.getenv("CLIENT_ID")
 CLIENT_SECRET = os.getenv("CLIENT_SECRET")
-# REDIRECT_URI = os.getenv("REDIRECT_URI") or 'http://localhost:8000/callback'
-# FRONTEND_BASE_URL = os.getenv("FRONTEND_BASE_URL") or 'http://localhost:3000'
-REDIRECT_URI = os.getenv("REDIRECT_URI", "https://sangeetserver.vercel.app/spotify/callback")
-FRONTEND_BASE_URL = os.getenv("FRONTEND_BASE_URL", "https://sangeetclient.vercel.app")
+REDIRECT_URI = os.getenv("REDIRECT_URI", "http://localhost:8000/callback")
+FRONTEND_BASE_URL = os.getenv("FRONTEND_BASE_URL", "http://localhost:3000")
 PORT = int(os.getenv("PORT", 8000))
 
 # Middleware
 app.add_middleware(SessionMiddleware, secret_key=os.urandom(32))
-app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_credentials=True, allow_methods=["*"], allow_headers=["*"])
-
+# app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_credentials=True, allow_methods=["*"], allow_headers=["*"])
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:3000", "https://sangeetclient.vercel.app", "https://sangeetserver.vercel.app"],
