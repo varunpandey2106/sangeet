@@ -27,7 +27,6 @@ PORT = int(os.getenv("PORT", 8000))
 
 # Middleware
 app.add_middleware(SessionMiddleware, secret_key=os.urandom(32))
-# app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_credentials=True, allow_methods=["*"], allow_headers=["*"])
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:3000", "https://sangeetclient.vercel.app", "https://sangeetserver.vercel.app"],
@@ -35,6 +34,8 @@ app.add_middleware(
     allow_methods=["GET", "POST"],
     allow_headers=["Authorization", "Content-Type"],
 )
+
+# app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_credentials=True, allow_methods=["*"], allow_headers=["*"])
 
 # Static Files
 # app.mount("/static", StaticFiles(directory="static"), name="static")
