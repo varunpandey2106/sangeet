@@ -30,7 +30,7 @@ app.add_middleware(SessionMiddleware, secret_key=os.urandom(32))
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["https://sangeet-tau.vercel.app", "https://sangeetapi.vercel.app"],
     allow_credentials=True,
     allow_methods=["GET", "POST"],
     allow_headers=["Authorization", "Content-Type"],
