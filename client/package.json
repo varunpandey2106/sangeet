@@ -20,6 +20,7 @@
       "pure": true
     }
   },
+  "proxy": "http://localhost:8000",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
