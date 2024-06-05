@@ -40,7 +40,7 @@ const Bar = styled.div`
   animation-play-state: running;
   animation-direction: alternate;
   animation-timing-function: linear;
-  animation-iteration-count: infinite;
+  animation-iteration-count: 3;
   animation-delay: ${props => props.delay || '0ms'};
 `;
 
@@ -48,10 +48,10 @@ const Loader = () => (
   <Container>
     <Bars>
       <Bar delay="250ms" />
-      <Bar delay="715ms" />
-      <Bar delay="475ms" />
-      <Bar delay="25ms" />
-      <Bar delay="190ms" />
+      <Bar delay="300ms" />
+      <Bar delay="450ms" />
+      <Bar delay="150ms" />
+      <Bar delay="250ms" />
     </Bars>
   </Container>
 );
@@ -95,3 +95,4 @@ export default Loader;
 
 // Each represents an individual loading bar and is wrapped in the Bars component.
 // There are 5 Bar components, each creating a single loading bar.
+

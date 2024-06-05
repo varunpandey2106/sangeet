@@ -1,7 +1,10 @@
 import axios from 'axios';
 import { getHashParams } from '../utils';
 
-// TOKENS 
+
+//modifications:
+
+// // TOKENS 
 const EXPIRATION_TIME = 3600 * 1000; // 3600 seconds * 1000 = 1 hour in milliseconds
 
 const setTokenTimestamp = () => window.localStorage.setItem('spotify_token_timestamp', Date.now());
@@ -63,6 +66,9 @@ export const logout = () => {
   window.location.reload();
 };
 
+
+
+
 // API CALLS 
 
 const headers = {
@@ -70,9 +76,7 @@ const headers = {
   'Content-Type': 'application/json',
 };
 
-
 export const getUser = () => axios.get('https://api.spotify.com/v1/me', { headers });
-
 
 export const getFollowing = () =>
   axios.get('https://api.spotify.com/v1/me/following?type=artist', { headers });
@@ -214,3 +218,4 @@ export const getTrackInfo = trackId =>
         audioFeatures: audioFeatures.data,
       })),
     );
+

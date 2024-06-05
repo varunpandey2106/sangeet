@@ -20,7 +20,7 @@ const LoginButton = styled.a`
   display: inline-block;
   background-color: ${colors.green};
   color: ${colors.white};
-  border-radius: 30px;
+  border-radius: 100px;
   padding: 17px 35px;
   margin: 20px 0 70px;
   min-width: 160px;
@@ -34,6 +34,7 @@ const LoginButton = styled.a`
   }
 `;
 
+
 const LoginScreen = () => (
   <Login>
     <h1>Sangeet</h1>
@@ -42,3 +43,4 @@ const LoginScreen = () => (
 );
 
 export default LoginScreen;
+

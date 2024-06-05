@@ -34,3 +34,4 @@ export default media;
 // Media Query Template: For each size, a media query template is created using the css function from styled-components. The media query targets screens with a maximum width equal to the size in em units. Inside the media query, the provided CSS rules are interpolated using the spread operator (...args). This allows for the inclusion of any CSS rules when using the media query template.
 
 // Usage: To use these media query templates, you can import the media object and call the corresponding size as a function, passing in the CSS rules as arguments. For example:
+
