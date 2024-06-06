@@ -1,11 +1,40 @@
 import axios from 'axios';
-import { getHashParams } from '../utils';
+// import { getHashParams } from '../utils';
 
 
 //modifications:
 
 // // TOKENS 
-const EXPIRATION_TIME = 3600 * 1000; // 3600 seconds * 1000 = 1 hour in milliseconds
+
+// src/spotify/auth.js
+
+const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
+const REDIRECT_URI = process.env.REACT_APP_REDIRECT_URI;
+const AUTH_ENDPOINT = 'https://accounts.spotify.com/authorize';
+const TOKEN_ENDPOINT = 'https://accounts.spotify.com/api/token';
+const RESPONSE_TYPE = 'code';
+const SCOPES = [
+  'user-read-private',
+  'user-read-email',
+  'user-read-recently-played',
+  'user-top-read',
+  'user-follow-read',
+  'user-follow-modify',
+  'playlist-read-private',
+  'playlist-read-collaborative',
+  'playlist-modify-public',
+].join(' ');
+
+const LOGIN_URI =
+  process.env.NODE_ENV !== 'production'
+    ? 'http://localhost:3000/login'
+    : 'https://sangeet-txek.vercel.app';
+
+// export const loginUrl = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&scope=${encodeURIComponent(SCOPES)}&response_type=${RESPONSE_TYPE}&show_dialog=true`;
+
+export const loginUrl = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&scope=${encodeURIComponent(SCOPES)}&response_type=${RESPONSE_TYPE}&show_dialog=true&state=${LOGIN_URI}`;
+
+const EXPIRATION_TIME = 3600 * 1000; // 1 hour in milliseconds
 
 const setTokenTimestamp = () => window.localStorage.setItem('spotify_token_timestamp', Date.now());
 const setLocalAccessToken = token => {
@@ -17,41 +46,67 @@ const getTokenTimestamp = () => window.localStorage.getItem('spotify_token_times
 const getLocalAccessToken = () => window.localStorage.getItem('spotify_access_token');
 const getLocalRefreshToken = () => window.localStorage.getItem('spotify_refresh_token');
 
-// Refresh the token
 const refreshAccessToken = async () => {
   try {
-    const { data } = await axios.get(`/refresh_token?refresh_token=${getLocalRefreshToken()}`);
-    const { access_token } = data;
+    const refreshToken = getLocalRefreshToken();
+    const response = await axios.post(TOKEN_ENDPOINT, null, {
+      params: {
+        grant_type: 'refresh_token',
+        refresh_token: refreshToken,
+        client_id: CLIENT_ID,
+        client_secret: process.env.REACT_APP_CLIENT_SECRET, // Make sure to store this securely
+      },
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+    });
+
+    const { access_token } = response.data;
     setLocalAccessToken(access_token);
     window.location.reload();
-    return;
+    return access_token;
   } catch (e) {
     console.error(e);
+    logout();
   }
 };
 
-// Get access token off of query params (called on application init)
 export const getAccessToken = () => {
-  const { error, access_token, refresh_token } = getHashParams();
+  const params = new URLSearchParams(window.location.search);
+  const code = params.get('code');
 
-  if (error) {
-    console.error(error);
-    refreshAccessToken();
-  }
-
-  // If token has expired
-  if (Date.now() - getTokenTimestamp() > EXPIRATION_TIME) {
-    console.warn('Access token has expired, refreshing...');
-    refreshAccessToken();
+  if (code) {
+    return axios.post(TOKEN_ENDPOINT, null, {
+      params: {
+        grant_type: 'authorization_code',
+        code: code,
+        redirect_uri: REDIRECT_URI,
+        client_id: CLIENT_ID,
+        client_secret: process.env.REACT_APP_CLIENT_SECRET,
+      },
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+    }).then(response => {
+      const { access_token, refresh_token } = response.data;
+      setLocalAccessToken(access_token);
+      setLocalRefreshToken(refresh_token);
+      window.history.pushState({}, null, '/');
+      return access_token;
+    }).catch(error => {
+      console.error(error);
+      return null;
+    });
   }
 
   const localAccessToken = getLocalAccessToken();
 
-  // If there is no ACCESS token in local storage, set it and return `access_token` from params
-  if ((!localAccessToken || localAccessToken === 'undefined') && access_token) {
-    setLocalAccessToken(access_token);
-    setLocalRefreshToken(refresh_token);
-    return access_token;
+  if (!localAccessToken || localAccessToken === 'undefined') {
+    return null;
+  }
+
+  if (Date.now() - getTokenTimestamp() > EXPIRATION_TIME) {
+    return refreshAccessToken();
   }
 
   return localAccessToken;

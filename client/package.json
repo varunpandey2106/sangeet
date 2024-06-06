@@ -19,7 +19,7 @@
       "pure": true
     }
   },
-  "proxy": "http://localhost:8000",
+  "proxy": "http://localhost:3000",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -36,6 +36,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "react-router-dom": "^6.23.1",
     "react-scripts": "^5.0.1",
     "stream-browserify": "^3.0.0",
     "styled-components": "^4.3.2"
